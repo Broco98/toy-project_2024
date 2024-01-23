@@ -5,29 +5,15 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Getter
-public class Seller {
+@Entity @Getter
+public class Seller extends User{
+    
+    // 잘 모르겠네 ㅇㅅ
+    private User user;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "seller_id")
-    private Long id;
-
-    private String username;
-    private String password;
-
-    private String name;
-    private String shopName;
-    private String phoneNumber;
-
-    @Enumerated(EnumType.STRING)
-    private UserStatus status;
-
-
-
-    private LocalDateTime joinDate;         // 가입일
-    private LocalDateTime withdrawalDate;   // 탈퇴일
-    private LocalDateTime suspensionDate;   // 정지일
+    private String businessName;
+    private String businessInfo;
+    private String address;
+    private Integer likeNum;
 
 }

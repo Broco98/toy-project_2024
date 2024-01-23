@@ -10,13 +10,14 @@ public class DeliveryInfo {
 
     @Id
     @GeneratedValue
-    @Column(name = "deliveryinfo_id")
+    @Column(name = "delivery_id")
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "orders_id")
     private Order order;
 
+    private String deliveryCompanyInfo;
     private LocalDateTime expectedDeliveryDate;
     private DeliveryStatus status;
 

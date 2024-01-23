@@ -13,19 +13,19 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name = "user_id")
-    private Long id;                        // PK
+    private Long id;
 
-    private String username;                // 아이디
-    private String password;                // 비밀번호
+    private String username;
+    private String password;
 
-    private String nickName;                // 별명
-    private String phoneNumber;             // 전화번호
+    private String name;
+    private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    private UserStatus status;              // 회원 상태
+    private UserStatus status;
 
     private LocalDateTime joinDate;         // 가입일
     private LocalDateTime withdrawalDate;   // 탈퇴일
-    private LocalDateTime suspensionDate;   // 정지일
+    private LocalDateTime stopDate;         // 정지일
 
 }

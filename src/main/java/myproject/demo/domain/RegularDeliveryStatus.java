@@ -1,6 +1,5 @@
 package myproject.demo.domain;
 
-public enum ItemStatus {
-
+public enum RegularDeliveryStatus {
     ACTIVATE, DEACTIVATE
 }
