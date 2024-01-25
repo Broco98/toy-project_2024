@@ -6,7 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import myproject.demo.domain.user.Customer;
 import org.springframework.stereotype.Repository;
 
-@Slf4j
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class CustomerRepository {
@@ -20,6 +21,11 @@ public class CustomerRepository {
 
     public Customer findOne(Long id) {
         return em.find(Customer.class, id);
+    }
+
+    public List<Customer> findAll() {
+        return em.createQuery("select c from Customer c", Customer.class)
+                .getResultList();
     }
 
 }

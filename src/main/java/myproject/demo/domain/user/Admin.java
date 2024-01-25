@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity @Getter @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Admin extends Member{
@@ -23,4 +24,5 @@ public class Admin extends Member{
         setStopDate(null);
         this.nickName = nickName;
     }
+
 }

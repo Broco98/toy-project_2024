@@ -6,7 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import myproject.demo.domain.user.Admin;
 import org.springframework.stereotype.Repository;
 
-@Slf4j
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class AdminRepository {
@@ -20,6 +21,12 @@ public class AdminRepository {
 
     public Admin findOne(Long id) {
         return em.find(Admin.class, id);
+    }
+
+
+    public List<Admin> findAll() {
+        return em.createQuery("select a from Admin a", Admin.class)
+                .getResultList();
     }
 
 }

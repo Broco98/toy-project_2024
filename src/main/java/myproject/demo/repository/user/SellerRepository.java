@@ -7,7 +7,6 @@ import myproject.demo.domain.user.Customer;
 import myproject.demo.domain.user.Seller;
 import org.springframework.stereotype.Repository;
 
-@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class SellerRepository {
