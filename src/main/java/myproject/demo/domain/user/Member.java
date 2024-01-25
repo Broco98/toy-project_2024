@@ -1,18 +1,22 @@
-package myproject.demo.domain;
+package myproject.demo.domain.user;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 
 
 import java.time.LocalDateTime;
 
-@Entity
-@Getter
-public class User {
+@Entity @Getter
+@Setter(AccessLevel.PROTECTED)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
+public class Member {
 
     @Id
     @GeneratedValue
-    @Column(name = "user_id")
+    @Column(name = "member_id")
     private Long id;
 
     private String username;
@@ -22,7 +26,7 @@ public class User {
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    private UserStatus status;
+    private MemberStatus status;
 
     private LocalDateTime joinDate;         // 가입일
     private LocalDateTime withdrawalDate;   // 탈퇴일
