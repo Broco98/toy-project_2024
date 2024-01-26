@@ -1,6 +1,6 @@
-package myproject.demo.domain.user;
+package myproject.demo.domain.member;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,11 +8,14 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity @Getter  @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Customer extends Member{
+public class Seller extends Member{
 
-    private String nickName;
+    private String businessName;
+    private String businessInfo;
+    private String address;
+    private Integer likeNum;
 
-    public Customer(String username, String password, String name, String phoneNumber, String nickName) {
+    public Seller(String username, String password, String name, String phoneNumber, String businessName, String businessInfo, String address) {
         setUsername(username);
         setPassword(password);
         setName(name);
@@ -21,6 +24,7 @@ public class Customer extends Member{
         setJoinDate(LocalDateTime.now());
         setWithdrawalDate(null);
         setStopDate(null);
-        this.nickName = nickName;
+
     }
+
 }

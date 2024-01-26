@@ -2,10 +2,10 @@ package myproject.demo.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import myproject.demo.domain.user.Admin;
-import myproject.demo.domain.user.Customer;
-import myproject.demo.domain.user.Member;
-import myproject.demo.domain.user.Seller;
+import myproject.demo.domain.member.Admin;
+import myproject.demo.domain.member.Customer;
+import myproject.demo.domain.member.Member;
+import myproject.demo.domain.member.Seller;
 import myproject.demo.repository.user.AdminRepository;
 import myproject.demo.repository.user.CustomerRepository;
 import myproject.demo.repository.user.MemberRepository;
@@ -54,8 +54,8 @@ public class MemberService {
         }
     }
 
-    public Member findOne(Long id) {
-        return memberRepository.findOne(id);
+    public Member findById(Long id) {
+        return memberRepository.findById(id);
     }
 
     public List<Member> findMembers() {

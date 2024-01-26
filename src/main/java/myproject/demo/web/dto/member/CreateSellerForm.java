@@ -1,4 +1,4 @@
-package myproject.demo.web.dto;
+package myproject.demo.web.dto.member;
 
 import lombok.Getter;
 import lombok.Setter;

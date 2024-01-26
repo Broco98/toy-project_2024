@@ -2,8 +2,7 @@ package myproject.demo.repository.user;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import myproject.demo.domain.user.Admin;
+import myproject.demo.domain.member.Admin;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class AdminRepository {
         return admin.getId();
     }
 
-    public Admin findOne(Long id) {
+    public Admin findById(Long id) {
         return em.find(Admin.class, id);
     }
 

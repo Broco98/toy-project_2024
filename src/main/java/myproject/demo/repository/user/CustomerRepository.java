@@ -2,8 +2,7 @@ package myproject.demo.repository.user;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import myproject.demo.domain.user.Customer;
+import myproject.demo.domain.member.Customer;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class CustomerRepository {
         return customer.getId();
     }
 
-    public Customer findOne(Long id) {
+    public Customer findById(Long id) {
         return em.find(Customer.class, id);
     }
 

@@ -1,9 +1,7 @@
 package myproject.demo.repository.user;
 
-import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import myproject.demo.domain.user.Admin;
+import myproject.demo.domain.member.Admin;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,7 @@ class AdminRepositoryTest {
         adminRepository.save(admin);
 
         // then
-        Admin findAdmin = adminRepository.findOne(admin.getId());
+        Admin findAdmin = adminRepository.findById(admin.getId());
         log.info("find admin={}", findAdmin);
         Assertions.assertThat(findAdmin).isEqualTo(admin);
     }

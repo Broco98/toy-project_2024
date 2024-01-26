@@ -1,4 +1,4 @@
-package myproject.demo.domain.user;
+package myproject.demo.domain.member;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

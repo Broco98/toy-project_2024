@@ -2,10 +2,10 @@ package myproject.demo.repository.user;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import myproject.demo.domain.user.Customer;
-import myproject.demo.domain.user.Seller;
+import myproject.demo.domain.member.Seller;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -18,8 +18,12 @@ public class SellerRepository {
         return seller.getId();
     }
 
-    public Seller findOne(Long id) {
+    public Seller findById(Long id) {
         return em.find(Seller.class, id);
     }
 
+    public List<Seller> findAll() {
+        return em.createQuery("select s from Seller s", Seller.class)
+                .getResultList();
+    }
 }

@@ -1,10 +1,9 @@
 package myproject.demo.service;
 
-import myproject.demo.domain.user.Admin;
-import myproject.demo.domain.user.Customer;
-import myproject.demo.domain.user.Member;
-import myproject.demo.domain.user.Seller;
-import org.junit.jupiter.api.Assertions;
+import myproject.demo.domain.member.Admin;
+import myproject.demo.domain.member.Customer;
+import myproject.demo.domain.member.Member;
+import myproject.demo.domain.member.Seller;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,9 +31,9 @@ class MemberServiceTest {
         memberService.join(seller);
 
         // then
-        Member findCustomer = memberService.findOne(customer.getId());
-        Member findSeller = memberService.findOne(seller.getId());
-        Member findAdmin = memberService.findOne(admin.getId());
+        Member findCustomer = memberService.findById(customer.getId());
+        Member findSeller = memberService.findById(seller.getId());
+        Member findAdmin = memberService.findById(admin.getId());
         assertThat(findCustomer.getId()).isEqualTo(customer.getId());
         assertThat(findSeller.getId()).isEqualTo(seller.getId());
         assertThat(findAdmin.getId()).isEqualTo(admin.getId());

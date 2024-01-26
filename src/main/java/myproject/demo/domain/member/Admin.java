@@ -1,4 +1,4 @@
-package myproject.demo.domain.user;
+package myproject.demo.domain.member;
 
 import jakarta.persistence.Entity;
 import lombok.AccessLevel;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity @Getter @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Admin extends Member{

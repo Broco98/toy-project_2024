@@ -1,4 +1,4 @@
-package myproject.demo.web;
+package myproject.demo.api;
 
 import lombok.RequiredArgsConstructor;
 import myproject.demo.domain.member.Admin;
@@ -8,38 +8,20 @@ import myproject.demo.service.MemberService;
 import myproject.demo.web.dto.member.CreateAdminForm;
 import myproject.demo.web.dto.member.CreateCustomerForm;
 import myproject.demo.web.dto.member.CreateSellerForm;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-public class MemberController {
+public class MemberApiController {
 
     private final MemberService memberService;
 
-    @GetMapping("/members/customer/join")
-    public String customerForm() {
-        return "members/customer/join";
-    }
-
-    @GetMapping("/members/admin/join")
-    public String adminForm() {
-        return "members/admin/join";
-    }
-
-    @GetMapping("/members/seller/join")
-    public String sellerForm() {
-        return "members/seller/join";
-    }
-
-    @PostMapping("/members/customer/join")
-    public String customerJoin(CreateCustomerForm form, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        if(bindingResult.hasErrors()) {
-           return "members/customer/join";
-        }
+    @PostMapping("/api/members/customer/join")
+    public Customer customerJoin(CreateCustomerForm form) {
 
         Customer customer = new Customer(
                 form.getUsername(),
@@ -50,15 +32,11 @@ public class MemberController {
         );
 
         memberService.join(customer);
-        redirectAttributes.addAttribute("join", "성공!");
-        return "redirect:/members/login";
+        return customer;
     }
 
-    @PostMapping("/members/admin/join")
-    public String adminJoin(CreateAdminForm form, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        if(bindingResult.hasErrors()) {
-            return "members/admin/join";
-        }
+    @PostMapping("/api/members/admin/join")
+    public Admin adminJoin(CreateAdminForm form) {
 
         Admin admin = new Admin(
                 form.getUsername(),
@@ -69,15 +47,11 @@ public class MemberController {
         );
 
         memberService.join(admin);
-        redirectAttributes.addAttribute("join", "성공!");
-        return "redirect:/members/login";
+        return admin;
     }
 
-    @PostMapping("/members/seller/join")
-    public String sellerJoin(CreateSellerForm form, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        if(bindingResult.hasErrors()) {
-            return "members/seller/join";
-        }
+    @PostMapping("/api/members/seller/join")
+    public Seller sellerJoin(CreateSellerForm form) {
 
         Seller seller = new Seller(
                 form.getUsername(),
@@ -90,8 +64,7 @@ public class MemberController {
         );
 
         memberService.join(seller);
-        redirectAttributes.addAttribute("join", "성공!");
-        return "redirect:/members/login";
+        return seller;
     }
 
 }

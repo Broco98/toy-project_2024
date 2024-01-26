@@ -2,7 +2,7 @@ package myproject.demo.repository.user;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import myproject.demo.domain.user.Member;
+import myproject.demo.domain.member.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class MemberRepository {
 
     private final EntityManager em;
 
-    public Member findOne(Long id) {
+    public Member findById(Long id) {
         return em.find(Member.class, id);
     }
 

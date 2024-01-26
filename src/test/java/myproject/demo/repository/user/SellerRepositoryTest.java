@@ -1,8 +1,7 @@
 package myproject.demo.repository.user;
 
 import lombok.extern.slf4j.Slf4j;
-import myproject.demo.domain.user.Admin;
-import myproject.demo.domain.user.Seller;
+import myproject.demo.domain.member.Seller;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ class SellerRepositoryTest {
         sellerRepository.save(seller);
 
         // then
-        Seller findSeller = sellerRepository.findOne(seller.getId());
+        Seller findSeller = sellerRepository.findById(seller.getId());
         log.info("find admin={}", findSeller);
         Assertions.assertThat(findSeller).isEqualTo(seller);
     }

@@ -1,15 +1,12 @@
 package myproject.demo.repository.user;
 
 import lombok.extern.slf4j.Slf4j;
-import myproject.demo.domain.user.Admin;
-import myproject.demo.domain.user.Customer;
+import myproject.demo.domain.member.Customer;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest
@@ -29,7 +26,7 @@ class CustomerRepositoryTest {
         customerRepository.save(customer);
 
         // then
-        Customer findCustomer = customerRepository.findOne(customer.getId());
+        Customer findCustomer = customerRepository.findById(customer.getId());
         log.info("find admin={}", findCustomer);
         Assertions.assertThat(findCustomer).isEqualTo(customer);
     }
